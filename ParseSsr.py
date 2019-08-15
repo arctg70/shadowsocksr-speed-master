@@ -1,13 +1,13 @@
 import base64
 
-#python /home/nu11/.config/electron-ssr/shadowsocksr/shadowsocks/local.py -s hk2.pyjiaoyi.cf -p 10384 -k EoWjVthG -m chacha20-ietf -O auth_aes128_md5 -o http_simple -g download.windowsupdate.com -b 0.0.0.0 -l 1080
-#python3 shadowsocksr/shadowsocks/local.py -s us1.pyjiaoyi.cf -p 10384 -k EoWjVthG -m chacha20-ietf -O auth_aes128_md5 -o http_simple -g download.windowsupdate.com -b 0.0.0.0 -l 6666
-#s hk2.pyjiaoyi.cf -p 10384 -k EoWjVthG -m chacha20-ietf -O auth_aes128_md5 -o http_simple -g download.windowsupdate.com -b 0.0.0.0 -l 1080
+# python /home/nu11/.config/electron-ssr/shadowsocksr/shadowsocks/local.py -s hk2.pyjiaoyi.cf -p 10384 -k EoWjVthG -m chacha20-ietf -O auth_aes128_md5 -o http_simple -g download.windowsupdate.com -b 0.0.0.0 -l 1080
+# python3 shadowsocksr/shadowsocks/local.py -s us1.pyjiaoyi.cf -p 10384 -k EoWjVthG -m chacha20-ietf -O auth_aes128_md5 -o http_simple -g download.windowsupdate.com -b 0.0.0.0 -l 6666
+# s hk2.pyjiaoyi.cf -p 10384 -k EoWjVthG -m chacha20-ietf -O auth_aes128_md5 -o http_simple -g download.windowsupdate.com -b 0.0.0.0 -l 1080
 
 
 def base64_decode(base64_encode_str):
     """ 利用 base64.urlsafe_b64decode 对字符串解码 """
-    
+
     if base64_encode_str:
         need_padding = len(base64_encode_str) % 4
         if need_padding != 0:
@@ -15,6 +15,7 @@ def base64_decode(base64_encode_str):
             base64_encode_str += '=' * missing_padding
         return base64.urlsafe_b64decode(base64_encode_str).decode('utf-8')
     return base64_encode_str
+
 
 def parse(ssrUrl):
     """ 解析ssr链接 
@@ -31,7 +32,7 @@ def parse(ssrUrl):
     if len(parts) != 6:
         print('不能解析SSR链接: %s' % ssrUrl)
         return
-    
+
     server = parts[0]
     port = parts[1]
     protocol = parts[2]
@@ -57,17 +58,17 @@ def parse(ssrUrl):
         protoparam = base64_decode(param_dic.get('protoparam', ""))
         remarks = base64_decode(param_dic.get('remarks', ""))
         group = base64_decode(param_dic.get('group', ""))
-        
-    ssr_result['server']=server
-    ssr_result['port']=port
-    ssr_result['protocol']=protocol
-    ssr_result['method']=method
-    ssr_result['password']=password
-    ssr_result['obfs']=obfs
-    ssr_result['obfsparam']=obfsparam
-    ssr_result['remarks']=remarks
-    ssr_result['group']=group
-    ssr_result['protoparam']=protoparam
+
+    ssr_result['server'] = server
+    ssr_result['port'] = port
+    ssr_result['protocol'] = protocol
+    ssr_result['method'] = method
+    ssr_result['password'] = password
+    ssr_result['obfs'] = obfs
+    ssr_result['obfsparam'] = obfsparam
+    ssr_result['remarks'] = remarks
+    ssr_result['group'] = group
+    ssr_result['protoparam'] = protoparam
 
     return ssr_result
 
@@ -92,5 +93,5 @@ if __name__ == "__main__":
     for url in test_ssrUrl_list:
         ssr = parse(url[6:])
         print(' server: %s\n port: %s\n 协议: %s\n 加密方法: %s\n 密码: %s\n 混淆: %s\n 混淆参数: %s\n 协议参数: %s\n 备注: %s\n 分组: %s'
-          % (ssr["server"], ssr["port"], ssr["protocol"], ssr["method"], ssr["password"], ssr["obfs"], ssr["obfsparam"], ssr["protoparam"], ssr["remarks"], ssr["group"]))
+              % (ssr["server"], ssr["port"], ssr["protocol"], ssr["method"], ssr["password"], ssr["obfs"], ssr["obfsparam"], ssr["protoparam"], ssr["remarks"], ssr["group"]))
         print("*===========================*")
