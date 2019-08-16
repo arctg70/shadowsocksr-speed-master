@@ -153,7 +153,7 @@ def write_json(write_config):
     with open(json_path, 'w', encoding='utf-8') as f:
         json.dump(json_config, f, indent=4)
 
-#subprocess.call('taskkill /f /im ShadowsocksR-dotnet4.0-speedtest.exe',stdout=subprocess.PIPE)
+# subprocess.call('taskkill /f /im ShadowsocksR-dotnet4.0-speedtest.exe',stdout=subprocess.PIPE)
 # subprocess.Popen("ShadowsocksR-dotnet4.0.exe")
 
 # 运行 ssr
@@ -235,6 +235,3 @@ f = open('newsub.txt', 'w')
 for i in sslist:
     f.write((ssr_subscribe_decode[int(i.strip()) - 1]) + '\n\r')
 f.close
-
-
-

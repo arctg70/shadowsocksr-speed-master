@@ -1,7 +1,7 @@
 import base64
 
 # python /home/nu11/.config/electron-ssr/shadowsocksr/shadowsocks/local.py -s hk2.pyjiaoyi.cf -p 10384 -k EoWjVthG -m chacha20-ietf -O auth_aes128_md5 -o http_simple -g download.windowsupdate.com -b 0.0.0.0 -l 1080
-# python3 shadowsocksr/shadowsocks/local.py -s us1.pyjiaoyi.cf -p 10384 -k EoWjVthG -m chacha20-ietf -O auth_aes128_md5 -o http_simple -g download.windowsupdate.com -b 0.0.0.0 -l 6666
+#python3 shadowsocksr/shadowsocks/local.py -s us1.pyjiaoyi.cf -p 10384 -k EoWjVthG -m chacha20-ietf -O auth_aes128_md5 -o http_simple -g download.windowsupdate.com -b 0.0.0.0 -l 6666
 # s hk2.pyjiaoyi.cf -p 10384 -k EoWjVthG -m chacha20-ietf -O auth_aes128_md5 -o http_simple -g download.windowsupdate.com -b 0.0.0.0 -l 1080
 
 
@@ -18,10 +18,10 @@ def base64_decode(base64_encode_str):
 
 
 def parse(ssrUrl):
-    """ 解析ssr链接 
-    args: 
+    """解析ssr链接
+    :args:
         ssrUrl: SSR 链接
-    return: 
+    :return:
         ssr_result: SSR链接解析结果
     """
 
