@@ -1,18 +1,18 @@
 {
     "configs": [
         {
-            "server": "139.162.25.148",
-            "port": "8097",
+            "server": "50.7.12.147",
+            "port": "8099",
             "protocol": "origin",
             "method": "aes-256-cfb",
             "password": "eIW0Dnk69454e6nSwuspv9DmS201tQ0D",
             "obfs": "plain",
             "obfsparam": "",
-            "remarks": "\u7ffb\u5899\u515a245.32\u65b0\u52a0\u5761",
-            "group": "\u65b0\u52a0\u5761",
+            "remarks": "299.86_\u7f8e\u56fd-\u4f0a\u5229\u8bfa\u4f0a-\u829d\u52a0\u54e5",
+            "group": "\u7f8e\u56fd",
             "protoparam": "",
             "protocolparam": "",
-            "server_port": "8097"
+            "server_port": "8099"
         }
     ],
     "index": 0,

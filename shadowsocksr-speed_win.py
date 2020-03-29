@@ -1,5 +1,5 @@
 import urllib.request
-# import base64
+import base64
 from prettytable import PrettyTable
 # from colorama import init, Fore, Back, Style
 import os
@@ -172,16 +172,18 @@ ssr_config = []
 speed_result = []
 
 if len(argv) > 1:
-    print(argv[1])
+    print('argv[1]' + argv[1])
+    print('argv[0]' + argv[0])
     # file_path="win/gui-config.json"
-    file_path = argv[1]
+    # file_path = argv[1]
+    file_path = input("file path:")
     file_config = None
     with open(file_path, 'r', encoding='utf-8') as f:
         file_config = json.load(f)
     # print(file_config['configs'])
     for x in file_config['configs']:
         ssr_config.append(x)
-        # print(x)
+        print(x)
         # print(x)
 else:
     url = input("url:")
@@ -225,11 +227,18 @@ for x in ssr_config:
     close_ssr()
 ss = table.getsort()
 sslist = ss.splitlines()
-f = open('idexchart.txt', 'w')
-f.write(table.str())
-f.close()
+with open('idexchart.txt', 'w') as f:
+    f.write(table.str())
+
 print(sslist)
-f = open('newsub.txt', 'w')
-for i in sslist:
-    f.write(ssr_subscribe_decode[int(i.strip()) - 1] + '\n')
-f.close
+
+with open('newsub.txt', 'w') as f:
+    for i in sslist:
+        f.write(ssr_subscribe_decode[int(i.strip()) - 1] + '\n')
+
+with open('newsub.txt', 'rb') as f:
+    data = f.read()
+
+with open('subscrib.txt', 'wb') as f:
+    # f.write(base64.urlsafe_b64encode(data))
+    f.write(base64.encodebytes(data))
